@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Nhận dạng cảm xúc</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="canonical" href="http://127.0.0.1:5000/" />
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <style type="text/css">
+        body{
+            background-color: pink;
+        }
+        h1{
+            text-align: center;
+            font-size: 60px;
+        }
+        p{
+            font-size: 30px;
+        }
+        table #input {
+            width: 600px;
+            height: 400px;
+            font-size: 50px;
+        }
+        p {
+            font-size: 50px;
+        }
+        input{
+            font-size: 30px;
+        }
+        button{
+            font-size: 30px;
+        }
+        table #output {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header"> 
+            <h1>NHẬN DẠNG CẢM XÚC</h1>     
+        </div>
+        <footer class="footer">
+            <table border='1'>
+                <tr>
+                    <th id="input"> 
+                        <form method="post" action="{{ url_for('nhandien') }}" enctype="multipart/form-data">
+                            <p>Chọn ảnh</p><input type="file" name="anh_nd" id="anh_nd"/><br>
+                            <button type="submit" name="them" value="Thêm">Nhận dạng</button>
+                        </form>
+                    </th>
+                    <th id="output">
+                        {%if image %}
+                            <img width="600" height="400" src="{{image}}"/>
+                        {%endif%}
+                    </th>
+                </tr>
+            </table>
+        </footer>
+
+    </div>
+</body>
+
+</html>
